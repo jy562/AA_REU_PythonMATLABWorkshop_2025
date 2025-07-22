@@ -17,8 +17,7 @@ colormap jet; title("DFT Matrix");
 
 % Inverse transform:
 % iDFT_mat = inv(DFT_mat);
-iDFT_mat = 1/N*omega_n.^(-(I-1).*(J-1));
-% 1/N makes it unitary.
+iDFT_mat = 
 
 figure;
 imagesc(real(iDFT_mat));
@@ -27,13 +26,8 @@ colormap jet; title("iDFT Matrix");
 
 %% Quick Test:
 
-u1 = [1 1 1 1 -1 -1 -1 -1]'; % make sure it's a column vector.
+u1 = [1 1 1 1 -1 -1 -1 -1]';
 u1_hat = DFT_mat * u1;
 u1_recover = iDFT_mat * u1_hat;
-
-figure;
-imagesc(real(iDFT_mat*DFT_mat));
-cbar = colorbar; cbar.TickLabelInterpreter = "latex";
-colormap jet; title("Unitary Matrix Check");
 
 
